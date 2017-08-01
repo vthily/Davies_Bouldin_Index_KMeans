@@ -10,8 +10,9 @@ def compute_s(i, x, labels, clusters):
 	s = 0
 	for x in clusters:
 		# print x
-		s += distance.euclidean(x, clusters[i])
-	return s
+		# s += distance.euclidean(x, clusters[i])
+		s += distance.cosine(x, clusters[i]) # my experimence shows cosine has better performance 
+	return s/norm_c #to comform with algorithm in description)
 
 def compute_Rij(i, j, x, labels, clusters, nc):
 	Rij = 0
